@@ -52,5 +52,5 @@ export function copyCount(cards) {
 }
 
 export function collectionValue(cards) {
-    return cards.reduce((acc, card) => acc + card.price * card.quantity, 0);
+    return nbFormat.format(cards.reduce((acc, card) => acc + card.price * card.quantity, 0));
 }

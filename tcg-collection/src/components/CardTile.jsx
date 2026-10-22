@@ -1,7 +1,7 @@
 import RarityBadge from "./RarityBadge.jsx";
 import { isRare } from "../domain/card.js";
 
-function CardTile({card}) {
+function CardTile({card, children}) {
 
     return (
         <>
@@ -11,7 +11,12 @@ function CardTile({card}) {
                 {isRare(card) && <p className="highlight">★ Carte rare</p>}
                 <p className="meta">{card.set} · {card.rarity}</p>
                 <p className="price">{card.price} €</p>
-                {card.quantity > 0 ? <p className="meta">× {card.quantity}</p> : <p className="sold-out">Plus aucun exemplaire</p>}
+                {card.quantity === 0 && <p className="sold-out">Plus aucun exemplaire</p>}
+                { children &&
+                    <div className="actions">
+                        {children}
+                    </div>
+                }
             </article>
         </>
     )

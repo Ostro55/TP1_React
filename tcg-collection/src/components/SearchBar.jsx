@@ -1,6 +1,17 @@
 import { RARITIES, parseRarity } from "../domain/card.js";
+import {useEffect} from "react";
 
 export function SearchBar({ query, onQueryChange, rarity, onRarityChange }) {
+
+    useEffect(() => {
+        window.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                onQueryChange("");
+                onRarityChange("toutes");
+            }
+        })
+    }, [onQueryChange, onRarityChange])
+
     return (
         <div className="toolbar" role="search">
             <label>

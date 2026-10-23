@@ -35,6 +35,9 @@ export let SAMPLE_CARDS = Object.freeze([
 ])
 
 export function parseRarity(value) {
+    if (Object.values(RARITIES).includes(value)) {
+        return value;
+    }
     return RARITIES[value];
 }
 

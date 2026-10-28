@@ -6,6 +6,7 @@ import CardGrid from "./components/CardGrid.jsx";
 import {useState} from "react";
 import Summary from "./components/Summary.jsx";
 import SearchBar from "./components/SearchBar.jsx";
+import FavoritesCount from "./components/FavoritesCount.jsx";
 import {useDocumentTitle} from "./hooks/useDocumentTitle.js";
 import {useCards} from "./hooks/useCards.js";
 
@@ -28,6 +29,7 @@ function App() {
         <main className="app">
           <header className="app-header">
             <h1>Ma collection TCG</h1>
+            <FavoritesCount />
             <Summary cards={cards} />
           </header>
           <SearchBar query={query} onQueryChange={setQuery} rarity={rarity} onRarityChange={setRarity}/>

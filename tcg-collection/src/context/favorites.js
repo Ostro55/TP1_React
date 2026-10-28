@@ -1,11 +1,11 @@
-import {createContext} from "react";
+import { createContext, useContext } from "react";
 
-export const FavoriteContext = createContext(null)
+export const FavoritesContext = createContext(null);
 
 export function useFavorites() {
-    if (FavoriteContext == null) {
-        throw new Error("useFavorites must be used within a FavoriteProvider")
-    } else {
-        return FavoriteContext
-    }
+  const context = useContext(FavoritesContext);
+  if (context === null) {
+    throw new Error("useFavorites doit être appelé sous <FavoritesProvider>");
+  }
+  return context;
 }
